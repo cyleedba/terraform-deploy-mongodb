@@ -58,7 +58,7 @@ resource "aws_route_table_association" "demo_rule" {
   route_table_id = aws_route_table.demo_route.id
 }
 
-#6. create security group to allow 22,27017,443
+#6. create security group to allow 22,27017
 resource "aws_security_group" "allow_port" {
   name        = "allow_port_rule"
   description = "Allow TLS inbound traffic"
@@ -93,7 +93,7 @@ resource "aws_security_group" "allow_port" {
   }
 }
 
-#7. create redhat server and install/enabled apache2 
+#7. create redhat server and install mongodb 5.0 & mongo-other 
 resource "aws_instance" "demo-linux-instance" {
     ami = var.ami
     instance_type = var.instance_type
